@@ -4,11 +4,27 @@
       Just Monika.
     </ion-title>
   </ion-navbar>
+
+  <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+
 </ion-header>
 
 <ion-content padding>
-  Just Monika.
-  <p>
-    Just Monika.
-  </p>
+
+  <span *ngIf="!films.length">
+    Aucun resultats.
+  </span>
+
+  <ion-list>
+    <button ion-item *ngFor="let film of films" (click)="itemSelected(item)">
+
+      <ion-thumbnail item-start>
+        <img [src]="film.image">
+      </ion-thumbnail>
+      <h2>{{ film.title }}</h2>
+      <p>{{ film.author }} • {{ film.date }}</p>
+
+    </button>
+  </ion-list>
+
 </ion-content>
