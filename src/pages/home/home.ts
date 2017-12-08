@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { ResolvedReflectiveFactory } from '@angular/core/src/di/reflective_provider';
+import { DetailsPage } from '../details/details';
 
 export interface Result {
   author: string;
@@ -53,9 +54,13 @@ const fakeResults: Result[] = [{
 
 export class HomePage {
   films : Result[];
+  params : Object;
+  pushPage : any;
 
   constructor(public navCtrl: NavController) {
     this.films = [];
+    this.pushPage = DetailsPage;
+    this.params ={id :42};
   }
 
   initializeItems(){

@@ -6,7 +6,6 @@
   </ion-navbar>
 
   <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
-
 </ion-header>
 
 <ion-content padding>
@@ -16,7 +15,7 @@
   </span>
 
   <ion-list>
-    <button ion-item *ngFor="let film of films" (click)="itemSelected(item)">
+    <button ion-item *ngFor="let film of films" [navPush]="pushPage" [navParams]="film">
 
       <ion-thumbnail item-start>
         <img [src]="film.image">
