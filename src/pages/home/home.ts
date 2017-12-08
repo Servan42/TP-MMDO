@@ -14,7 +14,7 @@ const fakeResults: Result[] = [{
   author: 'Servan',
   date: 2017,
   image: 'http://lorempixel.com/300/300/',
-  title:'Le ninja de l\'ombre',
+  title:'Le ninja de l\'Ombre',
   }, {
   author: 'Zoran',
   date: 1996,
