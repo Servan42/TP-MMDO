@@ -7,15 +7,17 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>details</ion-title>
+    <ion-title>Details</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-  <h3>Titre</h3>
-  <p>{{ film.title }}</p>
-  <h3>Image</h3>
-  <p><img [src]="film.image"></p>
+  <h1 style="text-align:center">{{ film.title }}</h1>
+  <p>
+    <img [src]="'https://image.tmdb.org/t/p/w640' + film.poster_path">
+  </p>
+  <h4>Overview</h4>
+  <p>{{ film.overview }}</p>
 </ion-content>

@@ -1,7 +1,7 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Just Monika.
+      The Movie Database
     </ion-title>
   </ion-navbar>
 
@@ -18,10 +18,10 @@
     <button ion-item *ngFor="let film of films | async" [navPush]="pushPage" [navParams]="film">
 
       <ion-thumbnail item-start>
-        <img [src]="film.poster_path">
+        <img [src]="'https://image.tmdb.org/t/p/w92' + film.poster_path">
       </ion-thumbnail>
       <h2>{{ film.title }}</h2>
-      <p>{{ film.overview }} • {{ film.release_date }}</p>
+      <p>{{ film.release_date }}</p>
 
     </button>
   </ion-list>
