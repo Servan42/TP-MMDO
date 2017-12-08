@@ -10,18 +10,18 @@
 
 <ion-content padding>
 
-  <span *ngIf="!films.length">
+  <span *ngIf="!(films | async)?.length">
     Aucun resultats.
   </span>
 
   <ion-list>
-    <button ion-item *ngFor="let film of films" [navPush]="pushPage" [navParams]="film">
+    <button ion-item *ngFor="let film of films | async" [navPush]="pushPage" [navParams]="film">
 
       <ion-thumbnail item-start>
-        <img [src]="film.image">
+        <img [src]="film.poster_path">
       </ion-thumbnail>
       <h2>{{ film.title }}</h2>
-      <p>{{ film.author }} • {{ film.date }}</p>
+      <p>{{ film.overview }} • {{ film.release_date }}</p>
 
     </button>
   </ion-list>
