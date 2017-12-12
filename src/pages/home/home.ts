@@ -41,8 +41,18 @@ export class HomePage {
 
   fetchResults(query : string):Observable<Result[]>{
     return this.http.get<Result[]>('http://api.themoviedb.org/3/search/movie', {
-      params: new HttpParams().set('api_key', api_key).set('query', query)
+      params: new HttpParams().set('api_key', api_key).set('query', query).set('language', 'fr-FR')
     }).pluck('results');
+  }
+
+  private discoverMovies(): Observable<Result[]> {
+    return this.http.get<Result[]>('http://api.themoviedb.org/3/discover/movie', {
+      params: new HttpParams().set('api_key', api_key).set('primary_release_year', '2018').set('language', 'fr-FR')
+    }).pluck('results');
+  }
+
+  get2018(){
+    this.films = this.discoverMovies();
   }
 
 }
